@@ -29,8 +29,8 @@ class RemoteFilesController extends ApiController
 
     public function importRemoteFile(string $fileKey) {
         try {
-            $importedCount = $this->remoteFilesImporterService->importByKey($fileKey);
-            if ($importedCount > 0) {
+            $imported = $this->remoteFilesImporterService->importByKey($fileKey);
+            if ($imported) {
                 return response('',200);
             } else {
                 throw new \Exception('Something gone wrong');

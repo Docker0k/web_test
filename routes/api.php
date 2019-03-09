@@ -16,20 +16,23 @@ use Illuminate\Http\Request;
 
 //Route::post('auth/login', 'Api\User\AuthController@login');
 
-Route::middleware('auth:api')->group(function() {
-    Route::get('/user/info', function() {
-       return new \Illuminate\Http\JsonResponse(['info' => []],200);
+Route::middleware('auth:api')->group(function () {
+    Route::get('/user/info', function () {
+        return new \Illuminate\Http\JsonResponse(['info' => []], 200);
     });
 
-    Route::get('/remote-files','Api\RemoteFilesController@getRemoteFiles');
-    Route::post('/remote-files/{fileKey}/import','Api\RemoteFilesController@importRemoteFile');
-    Route::get('/report',function() {
-       $report = [
-           'imported' => \App\Models\Profile::all()->count(),
-       ];
-       
-       return response()->json($report);
+    Route::get('/remote-files', 'Api\RemoteFilesController@getRemoteFiles');
+    Route::post('/remote-files/{fileKey}/import', 'Api\RemoteFilesController@importRemoteFile');
+    Route::get('/report', function () {
+        $limit = 400;
+        $report = [
+            'importedByFiles' => \App\Models\Files::getRows(),
+            'subscribesInfo' => \App\Models\Subscription::getRows(),
+            'importedByFilesCount' => \App\Models\Files::getRowsLimited($limit),
+            'limit' => $limit
+        ];
+        return response()->json($report);
     });
-    
-    
+
+
 });

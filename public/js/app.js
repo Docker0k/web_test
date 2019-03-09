@@ -2086,6 +2086,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ReportPage",
   data: function data() {
@@ -2099,7 +2156,10 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('report').then(function (responce) {
       _this.loaded = true;
-      _this.report = responce.data;
+      _this.importedByFiles = responce.data.importedByFiles;
+      _this.subscribesInfo = responce.data.subscribesInfo;
+      _this.importedByFilesCount = responce.data.importedByFilesCount;
+      _this.limit = responce.data.limit;
     });
   }
 });
@@ -29224,7 +29284,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -29243,7 +29303,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.login-form--wrapper[data-v-7cda3efa] {\n    width: 320px;\n    margin: 0 auto;\n}\n", ""]);
+exports.push([module.i, "\n.login-form--wrapper[data-v-7cda3efa] {\r\n    width: 320px;\r\n    margin: 0 auto;\n}\r\n", ""]);
 
 // exports
 
@@ -29835,9 +29895,109 @@ var render = function() {
   return _c(_vm.layout, { tag: "component" }, [
     _vm.loaded
       ? _c("div", [
-          _vm._v(
-            "\n        Imported: " + _vm._s(_vm.report.imported) + "\n    "
-          )
+          _c("h2", [_vm._v(" Info by each imported files ")]),
+          _vm._v(" "),
+          _c("div", [
+            _c("table", { staticClass: "table" }, [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("File name")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Import date")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Import count")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.importedByFiles, function(item) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(item.file_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.updated_at))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.count))])
+                  ])
+                }),
+                0
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h2", [_vm._v(" Info by each subscription")]),
+          _vm._v(" "),
+          _c("div", [
+            _c("table", { staticClass: "table" }, [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Subscription name")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Count subscribers")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.subscribesInfo, function(item) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(item.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.count))])
+                  ])
+                }),
+                0
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h2", [
+            _vm._v(
+              " Info by each file which having count more than " +
+                _vm._s(_vm.limit) +
+                " subscribers"
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("table", { staticClass: "table" }, [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("File name")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Import date")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Import count")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.importedByFilesCount, function(item) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(item.file_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.updated_at))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.count))])
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
         ])
       : _vm._e()
   ])
@@ -50774,8 +50934,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/www/vhosts/test_task_base/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/www/vhosts/test_task_base/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\OS\OSPanel\domains\web-test.loc\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\OS\OSPanel\domains\web-test.loc\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
